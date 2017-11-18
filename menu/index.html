@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>menu</title>
+</head>
+<body>
+<div id="menu">
+
+</div>
+
+
+<script>
+    var menuObject = {
+        0: {
+            link: '#',
+            text: 'First'
+        },
+        1: {
+            link: '#',
+            text: 'Second Parent',
+            child: {
+                0: {
+                    link: '#',
+                    text: 'First'
+                },
+                1: {
+                    link: '#',
+                    text: 'Second Parent',
+                    child: {
+                        0: {
+                            link: '#',
+                            text: 'First Child Big Text'
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    document.getElementById("menu").appendChild(Show(menuObject));
+
+    function Show(node) {
+        var root=document.createElement('ul');
+
+        for(var index in node){
+
+            var node_=document.createElement('li');
+
+            var link=document.createElement('a');
+            link.appendChild(document.createTextNode(node[index]['text']));
+            link.href=node[index]["link"];
+
+            node_.appendChild(link);
+            root.appendChild(node_);
+
+            if(node[index]["child"]){
+                node_.appendChild(Show(node[index]['child']));
+            }
+        }
+        return root;
+    }
+
+</script>
+</body>
+</html>
