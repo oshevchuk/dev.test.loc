@@ -2,4 +2,5 @@
 Frontent test (lamp)
 
 /menu - Object to simple menu
-/img  - LAMP enviropment setup
+
+/img  - LAMP enviropment setup (screenshots)
